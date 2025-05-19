@@ -4,14 +4,13 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ProductList from "../components/ProductList";
 import { Product } from "../types/product";
-import { getProducts } from "../lib/api/products"; // ✅ Importando a função correta
+import { getProducts } from "../lib/api/products";
 import styles from "./HomePage.module.css";
 
 const HomePage: React.FC = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const navigate = useNavigate();
 
-  // 06-Hooks + 08-Api - Busca produtos ao montar componente
   useEffect(() => {
     const fetchData = async () => {
       const data = await getProducts();
@@ -21,7 +20,6 @@ const HomePage: React.FC = () => {
     fetchData();
   }, []);
 
-  // 05-Formulários e Eventos - Handler de navegação
   const handleNavigate = () => {
     navigate("/products");
   };

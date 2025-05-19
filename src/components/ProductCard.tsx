@@ -13,13 +13,11 @@ interface ProductCardProps {
 const ProductCard: React.FC<ProductCardProps> = ({ product, onBuyNow }) => {
   const [isFavorite, setIsFavorite] = useState(false);
 
-  // Verifica se o produto está nos favoritos no localStorage
   useEffect(() => {
     const storedFavorites = JSON.parse(localStorage.getItem("favorites") || "[]");
     setIsFavorite(storedFavorites.some((item: Product) => item.id === product.id));
   }, [product.id]);
 
-  // Função para adicionar/remover produto dos favoritos
   const toggleFavorite = () => {
     const storedFavorites: Product[] = JSON.parse(localStorage.getItem("favorites") || "[]");
     const alreadyFavorited = storedFavorites.some((item) => item.id === product.id);
@@ -45,8 +43,6 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onBuyNow }) => {
           height={300}
           className={styles.productImage}
         />
-
-        {/* Ícone de favorito no canto superior direito */}
         <button onClick={toggleFavorite} className={styles.favoriteIcon}>
           {isFavorite ? (
             <FaHeart size={22} color="red" />

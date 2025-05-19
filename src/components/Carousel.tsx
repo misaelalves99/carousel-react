@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "./Carousel.module.css";
 import { Product } from "../types/product";
-import { getProducts } from "../lib/api/products"; // <-- Importa o getProducts mockado
+import { getProducts } from "../lib/api/products";
 
 const Carousel: React.FC = () => {
   const [products, setProducts] = useState<Product[]>([]);
@@ -12,7 +12,7 @@ const Carousel: React.FC = () => {
   useEffect(() => {
     const loadProducts = async () => {
       try {
-        const data = await getProducts(); // <-- Usa o getProducts em vez de fetch
+        const data = await getProducts();
         setProducts(data);
       } catch (error) {
         console.error("Erro ao buscar produtos:", error);

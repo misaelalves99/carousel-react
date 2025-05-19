@@ -12,10 +12,10 @@ import CarouselPage from "./pages/CarouselPage";
 const App: React.FC = () => {
   return (
     <Router>
-      <div className="bg-gray-100 text-gray-900 flex flex-col min-h-screen">
+      <div>
         <ProductProvider>
           <Navbar />
-          <main className="flex-grow container mx-auto p-6">
+          <main>
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/products" element={<ProductsPage />} />

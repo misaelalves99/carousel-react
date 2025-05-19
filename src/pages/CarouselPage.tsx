@@ -1,8 +1,8 @@
 // src/pages/CarouselPage.tsx
 
 import React from "react";
-import Carousel from "../components/Carousel"; // Ajuste o caminho conforme necessário
-import styles from "./CarouselPage.module.css"; // Novo import do CSS Module
+import Carousel from "../components/Carousel";
+import styles from "./CarouselPage.module.css";
 
 const CarouselPage: React.FC = () => {
   return (

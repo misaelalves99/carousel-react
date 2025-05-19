@@ -1,15 +1,15 @@
 // src/pages/ProductsPage.tsx
 
 import React, { useEffect, useState } from "react";
-import { Product } from "../types/product"; // Ajuste o caminho conforme necessário
-import { getProducts } from "../lib/api/products"; // Ajuste o caminho conforme necessário
+import { Product } from "../types/product";
+import { getProducts } from "../lib/api/products";
 import { useProduct } from "../context/ProductContext";
 import ProductList from "../components/ProductList";
-import styles from "./ProductsPage.module.css"; // Ajuste o caminho conforme necessário
+import styles from "./ProductsPage.module.css";
 
 const ProductsPage: React.FC = () => {
-  const { setProducts: setContextProducts } = useProduct(); // Aqui o setProducts vem do contexto
-  const [products, setProducts] = useState<Product[]>([]); // Este estado é local ao componente
+  const { setProducts: setContextProducts } = useProduct();
+  const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string>("");
 
@@ -17,8 +17,8 @@ const ProductsPage: React.FC = () => {
     const load = async () => {
       try {
         const fetched = await getProducts();
-        setProducts(fetched); // Atualiza o estado local
-        setContextProducts(fetched); // Atualiza o contexto global com os produtos
+        setProducts(fetched);
+        setContextProducts(fetched);
       } catch (err) {
         setError("Erro ao carregar os produtos.");
         console.error("Erro ao buscar produtos:", err);
@@ -42,7 +42,7 @@ const ProductsPage: React.FC = () => {
       )}
 
       {!loading && !error && products.length > 0 && (
-        <ProductList products={products} /> // Passa os produtos para o componente ProductList
+        <ProductList products={products} />
       )}
     </div>
   );

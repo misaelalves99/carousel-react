@@ -2,7 +2,6 @@
 
 import { Product } from "../../types/product";
 
-// Mock de produtos para exibição no ProductList
 const products: Product[] = [
   {
     id: "1",
@@ -46,7 +45,6 @@ const products: Product[] = [
   },
 ];
 
-// Função para simular uma chamada à API
 const fetchProducts = async (): Promise<Product[]> => {
   return new Promise((resolve) => {
     setTimeout(() => {
@@ -55,7 +53,6 @@ const fetchProducts = async (): Promise<Product[]> => {
   });
 };
 
-// Função pública usada no app
 export const getProducts = async (): Promise<Product[]> => {
   try {
     const data = await fetchProducts();
